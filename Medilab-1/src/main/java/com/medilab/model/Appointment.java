@@ -9,7 +9,7 @@ public class Appointment {
 	private String name;
 	@Id
 	private String email;
-	private String phone;
+	private String phoneNumber;
 	private String date;
 	private String department;
 	private String doctor;
@@ -33,11 +33,12 @@ public class Appointment {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhone() {
-		return phone;
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	public String getDate() {
 		return date;
@@ -59,9 +60,11 @@ public class Appointment {
 	}
 	@Override
 	public String toString() {
-		return "Appointment [name=" + name + ", email=" + email + ", phone=" + phone + ", date=" + date
+		return "Appointment [name=" + name + ", email=" + email + ", phoneNumber=" + phoneNumber + ", date=" + date
 				+ ", department=" + department + ", doctor=" + doctor + "]";
 	}
+	
+	
 	
 	
 	

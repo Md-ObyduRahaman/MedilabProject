@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.medilab.config.AppConfig;
 import com.medilab.model.Appointment;
 import com.medilab.service.PatientService;
+import com.medilab.sms.Service;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -22,6 +23,8 @@ public class Controller {
 	AppConfig app;
 	@Autowired
 	Appointment appointment;
+	@Autowired
+	Service service;
 	
 	@RequestMapping("/index")
 	public String index(Model model) {
@@ -42,11 +45,13 @@ public class Controller {
 		appointment.setDate(date);
 		appointment.setName(name);
 		appointment.setEmail(email);
-		appointment.setPhone(phone);
+		appointment.setPhoneNumber(phone);
 		appointment.setDepartment(department);
 		appointment.setDoctor(doctor);
 		patientService.saveOrUpdate(appointment);
 		appointment.toString();
+		service.sendSms(appointment);
+		
 		
 	}
 	
